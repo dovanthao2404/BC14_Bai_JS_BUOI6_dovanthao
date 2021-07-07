@@ -1,65 +1,4 @@
 
-
-function getMyEle(myId) {
-  return document.getElementById(myId);
-}
-
-// Mảng chứa các thông báo
-var notifications = [
-  "Vui lòng nhập vào n!",
-  "n là một số!",
-  "n là một số nguyên!",
-  "n phải lớn hơn 1!",
-]
-
-// Kiểm tra người dùng có nhập không
-function checkEntry(idCheck, idNotifi, indexNotifi) {
-  var contentToCheck = getMyEle(idCheck).value;
-  var notifi = getMyEle(idNotifi);
-  if (contentToCheck === "") {
-    notifi.innerHTML = notifications[indexNotifi];
-    return false;
-  }
-  notifi.innerHTML = '';
-  return true;
-}
-
-// Kiểm tra người dùng nhập vào có phải là số không
-function checkIsNumber(idCheck, idNotifi, indexNotifi) {
-  var contentToCheck = +getMyEle(idCheck).value;
-  var notifi = getMyEle(idNotifi);
-  if (isNaN(contentToCheck)) {
-    notifi.innerHTML = notifications[indexNotifi];
-    return false;
-  }
-  notifi.innerHTML = '';
-  return true;
-}
-
-// Kiểm tra người dùng nhập có phải là số mũ lớn hơn 1 không
-function checkValueNumber(idCheck, idNotifi, indexNotifi) {
-  var contentToCheck = +getMyEle(idCheck).value;
-  var notifi = getMyEle(idNotifi);
-  if (contentToCheck <= 1) {
-    notifi.innerHTML = notifications[indexNotifi];
-    return false;
-  }
-  notifi.innerHTML = '';
-  return true;
-}
-
-// Kiểm tra người dùng có nhập và số nguyên hay không
-function checkIntegerNumber(idCheck, idNotifi, indexNotifi) {
-  var contentToCheck = +getMyEle(idCheck).value;
-  var notifi = getMyEle(idNotifi);
-  if (contentToCheck % 1 !== 0) {
-    notifi.innerHTML = notifications[indexNotifi];
-    return false;
-  }
-  notifi.innerHTML = '';
-  return true;
-}
-
 // Kiểm tra có phải là số nguyên tố không
 function isPrime(n) {
   if (n < 2) {
@@ -80,26 +19,29 @@ function inResult(n) {
       htmls += i + "\t";
     }
   }
-  console.log(htmls);
   return htmls;
 }
 
-function checkValid() {
-  var result = checkEntry("numberN", "notifiN", 0) &&
-    checkIsNumber("numberN", "notifiN", 1) &&
-    checkIntegerNumber("numberN", "notifiN", 2) &&
-    checkValueNumber("numberN", "notifiN", 3);
+function checkValidEx5() {
+  var result = checkEntry("numberZ", "notifiZ", 2, 0) &&
+    checkIsNumber("numberZ", "notifiZ", 2, 1) &&
+    checkIntegerNumber("numberZ", "notifiZ", 2, 2) &&
+    checkValueNumber("numberZ", "notifiZ", 2, 3, 2);
   return (result) ? true : false;
 }
 
-getMyEle("getResult").addEventListener("click", function () {
-  var result = checkValid();
-  console.log(result);
+getMyEl("btnResultEx5").addEventListener("click", function () {
+  var result = checkValidEx5();
   if (result) {
-    var n = +getMyEle("numberN").value;
+    var n = +getMyEl("numberZ").value;
     var resultContent = inResult(n);
-    document.getElementById("result").innerHTML = resultContent;
+    document.getElementById("result").innerHTML = "Dãy số nguyên tố từ 1 đến " + n + " là: <br>" + resultContent;
   } else {
     document.getElementById("result").innerHTML = "";
   }
+})
+
+
+getMyEl("removeResult").addEventListener("click", function () {
+  getMyEl("result").innerHTML = ''
 })

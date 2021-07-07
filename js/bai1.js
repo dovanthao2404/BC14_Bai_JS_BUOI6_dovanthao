@@ -1,6 +1,4 @@
 
-
-
 function getResult() {
   var i = 0;
   var sum = 0;
@@ -13,7 +11,7 @@ function getResult() {
 
 function showResult() {
   var result = getResult();
-  var showResult = document.getElementById("showResult");
+  var showResult = getMyEl("showResult");
   var tagP = document.createElement("p");
   tagP.className = "p-3 bg-info rounded";
   tagP.innerHTML = "Số nguyên dương nhỏ nhất: " + result;

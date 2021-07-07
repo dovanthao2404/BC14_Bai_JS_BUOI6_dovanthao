@@ -1,6 +1,4 @@
-function getMyEle(id) {
-  return document.getElementById(id);
-}
+
 // tạo 1 div
 function createDiv(n) {
   var tagDiv = document.createElement("div");
@@ -25,8 +23,8 @@ function getLengthDivs() {
 }
 
 // Tạo 10 div
-getMyEle("addDiv").addEventListener("click", function () {
-  var divContent = getMyEle("divContent");
+getMyEl("addDiv").addEventListener("click", function () {
+  var divContent = getMyEl("divContent");
   var lengthDivs = getLengthDivs();
   for (var i = lengthDivs + 1; i <= lengthDivs + 10; i++) {
     var tagDiv = createDiv(i);
@@ -35,6 +33,6 @@ getMyEle("addDiv").addEventListener("click", function () {
 })
 
 // reset
-getMyEle("reset").addEventListener("click", function () {
-  getMyEle("divContent").innerHTML = '';
+getMyEl("reset").addEventListener("click", function () {
+  getMyEl("divContent").innerHTML = '';
 })

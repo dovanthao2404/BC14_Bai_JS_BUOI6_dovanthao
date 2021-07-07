@@ -1,67 +1,5 @@
 
 
-function getMyId(myId) {
-  return document.getElementById(myId);
-}
-
-// Mảng chứa các thông báo
-var notifications = [
-  "Vui lòng nhập vào x!",
-  "Vui lòng nhập vào n!",
-  "x là một số!",
-  "n là một số!",
-  "n là một số nguyên!",
-  "n phải lớn hơn 0!",
-]
-
-// Kiểm tra người dùng có nhập không
-function checkEntry(idCheck, idNotifi, indexNotifi) {
-  var contentToCheck = getMyId(idCheck).value;
-  var notifi = getMyId(idNotifi);
-  if (contentToCheck === "") {
-    notifi.innerHTML = notifications[indexNotifi];
-    return false;
-  }
-  notifi.innerHTML = '';
-  return true;
-}
-
-// Kiểm tra người dùng nhập vào có phải là số không
-function checkIsNumber(idCheck, idNotifi, indexNotifi) {
-  var contentToCheck = +getMyId(idCheck).value;
-  var notifi = getMyId(idNotifi);
-  if (isNaN(contentToCheck)) {
-    notifi.innerHTML = notifications[indexNotifi];
-    return false;
-  }
-  notifi.innerHTML = '';
-  return true;
-}
-
-// Kiểm tra người dùng nhập có phải là số mũ lớn hơn 1 không
-function checkValueNumber(idCheck, idNotifi, indexNotifi) {
-  var contentToCheck = +getMyId(idCheck).value;
-  var notifi = getMyId(idNotifi);
-  if (contentToCheck < 1) {
-    notifi.innerHTML = notifications[indexNotifi];
-    return false;
-  }
-  notifi.innerHTML = '';
-  return true;
-}
-
-// Kiểm tra người dùng có nhập và số nguyên hay không
-function checkIntegerNumber(idCheck, idNotifi, indexNotifi) {
-  var contentToCheck = +getMyId(idCheck).value;
-  var notifi = getMyId(idNotifi);
-  if (contentToCheck % 1 !== 0) {
-    notifi.innerHTML = notifications[indexNotifi];
-    return false;
-  }
-  notifi.innerHTML = '';
-  return true;
-}
-
 // tính tổng
 function total(x, n) {
   var total = 0;
@@ -71,32 +9,32 @@ function total(x, n) {
   return total;
 }
 
-function checkValid() {
-  var result1 = checkEntry("numberX", "notifiX", 0) &&
-    checkIsNumber("numberX", "notifiX", 2);
-  var result2 = checkEntry("numberN", "notifiN", 1) &&
-    checkIsNumber("numberN", "notifiN", 3) &&
-    checkIntegerNumber("numberN", "notifiN", 4) &&
-    checkValueNumber("numberN", "notifiN", 5);
+function checkValidEx2() {
+  var result1 = checkEntry("number-1", "notifi1", 0, 0) &&
+    checkIsNumber("number-1", "notifi1", 0, 2);
+  var result2 = checkEntry("number-2", "notifi2", 0, 1) &&
+    checkIsNumber("number-2", "notifi2", 0, 3) &&
+    checkIntegerNumber("number-2", "notifi2", 0, 4) &&
+    checkValueNumber("number-2", "notifi2", 0, 5, 1);
   return (result1 && result2) ? true : false;
 }
 
-getMyId("getResult").addEventListener("click", function () {
-  var result = checkValid();
-  var numberX = +getMyId("numberX").value;
-  var numberN = +getMyId("numberN").value;
-  var sum = total(numberX, numberN);
+getMyEl("getResult").addEventListener("click", function () {
+  var result = checkValidEx2();
+  var number1 = +getMyEl("number-1").value;
+  var number2 = +getMyEl("number-2").value;
+  var sum = total(number1, number2);
   if (result) {
-    getMyId("result").classList.remove("d-none");
-    getMyId("result").classList.add("d-block");
+    getMyEl("resultEx2").classList.remove("d-none");
+    getMyEl("resultEx2").classList.add("d-block");
     if (sum % 1 === 0) {
-      getMyId("result").innerHTML = sum;
+      getMyEl("resultEx2").innerHTML = sum;
     } else {
 
-      getMyId("result").innerHTML = sum.toFixed(2);
+      getMyEl("resultEx2").innerHTML = sum.toFixed(2);
     }
   } else {
-    getMyId("result").classList.add("d-none");
-    getMyId("result").classList.remove("d-block");
+    getMyEl("resultEx2").classList.add("d-none");
+    getMyEl("resultEx2").classList.remove("d-block");
   }
 })
