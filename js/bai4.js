@@ -1,4 +1,3 @@
-
 // tạo 1 div
 function createDiv(n) {
   var tagDiv = document.createElement("div");

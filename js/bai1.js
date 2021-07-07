@@ -1,4 +1,3 @@
-
 function getResult() {
   var i = 0;
   var sum = 0;

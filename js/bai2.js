@@ -1,5 +1,3 @@
-
-
 // tính tổng
 function total(x, n) {
   var total = 0;

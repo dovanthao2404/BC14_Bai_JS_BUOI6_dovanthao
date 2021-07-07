@@ -1,4 +1,3 @@
-
 // Kiểm tra có phải là số nguyên tố không
 function isPrime(n) {
   if (n < 2) {

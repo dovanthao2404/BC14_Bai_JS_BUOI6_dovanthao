@@ -1,5 +1,3 @@
-
-
 // tính giai thừa
 function factorialCalculation(n) {
   var factorial = 1;

@@ -1,4 +1,3 @@
-
 function getMyEl(myId) {
   return document.getElementById(myId);
 }
