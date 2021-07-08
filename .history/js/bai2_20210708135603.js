@@ -26,10 +26,10 @@ getMyEl("getResult").addEventListener("click", function () {
     getMyEl("resultEx2").classList.remove("d-none");
     getMyEl("resultEx2").classList.add("d-block");
     if (sum % 1 === 0) {
-      getMyEl("resultEx2").innerHTML = "Tổng của " + number1 + " và " + number2 + " có dạng x^1 + x^2 + ... + x^n là: " + sum;
+      getMyEl("resultEx2").innerHTML = "Tổng của " + number1 + " và " + number2 + " có dạng x^1 + x^2 + ... + x^n: <br>" + sum;
     } else {
 
-      getMyEl("resultEx2").innerHTML = "Tổng của " + number1 + " và " + number2 + " có dạng x^1 + x^2 + ... + x^n là: " + sum.toFixed(2);
+      getMyEl("resultEx2").innerHTML = "Tổng của " + number1 + " và " + number2 + " có dạng x^1 + x^2 + ... + x^n: <br>" + sum.toFixed(2);
     }
   } else {
     getMyEl("resultEx2").classList.add("d-none");

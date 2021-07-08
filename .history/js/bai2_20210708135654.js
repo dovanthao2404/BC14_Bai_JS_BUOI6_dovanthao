@@ -29,7 +29,7 @@ getMyEl("getResult").addEventListener("click", function () {
       getMyEl("resultEx2").innerHTML = "Tổng của " + number1 + " và " + number2 + " có dạng x^1 + x^2 + ... + x^n là: " + sum;
     } else {
 
-      getMyEl("resultEx2").innerHTML = "Tổng của " + number1 + " và " + number2 + " có dạng x^1 + x^2 + ... + x^n là: " + sum.toFixed(2);
+      getMyEl("resultEx2").innerHTML = "Tổng của " + number1 + " và " + number2 + " có dạng x^1 + x^2 + ... + x^n là:" + sum.toFixed(2);
     }
   } else {
     getMyEl("resultEx2").classList.add("d-none");
