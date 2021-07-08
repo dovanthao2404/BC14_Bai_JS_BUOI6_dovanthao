@@ -36,3 +36,13 @@ getMyEl("getResult").addEventListener("click", function () {
     getMyEl("resultEx2").classList.remove("d-block");
   }
 })
+
+getMyEl("deleteResult").addEventListener("click", function () {
+  getMyEl("resultEx2").innerHTML = '';
+  getMyEl("number-1").value = '';
+  getMyEl("number-2").value = '';
+  getMyEl("notifi1").innerHTML = '';
+  getMyEl("notifi2").innerHTML = '';
+  getMyEl("resultEx2").classList.add("d-none");
+  getMyEl("resultEx2").classList.remove("d-block");
+})

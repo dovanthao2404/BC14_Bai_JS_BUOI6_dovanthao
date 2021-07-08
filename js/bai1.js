@@ -13,7 +13,7 @@ function showResult() {
   var showResult = getMyEl("showResult");
   var tagP = document.createElement("p");
   tagP.className = "p-3 bg-info rounded";
-  tagP.innerHTML = "Số nguyên dương nhỏ nhất: " + result;
+  tagP.innerHTML = "Số n nguyên dương nhỏ nhất thỏa điều kiện 1 + 2 + ... + n > 10000 là: " + result;
   showResult.appendChild(tagP);
 }
 
